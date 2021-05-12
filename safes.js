@@ -4,7 +4,7 @@ class Safe {
     this.r = 50;
     this.x = random(w);
     this.y = 0 - this.r;
-    this.speed = 2;
+    //this.speed = 2;
     // this.r = 60;
     // this.x = random(w);
     // this.y = h - this.r;
@@ -19,8 +19,8 @@ class Safe {
   }
 
   move(){
-      // this.y++;
-      this.y += this.speed;
+     this.y++;
+      //this.y += this.speed;
 
   }
 }

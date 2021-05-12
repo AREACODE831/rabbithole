@@ -4,7 +4,7 @@ class Enemy {
     this.r = 50;
     this.x = random(w);
     this.y = 0 - this.r;
-    this.speed = 3;
+    //this.speed = 3; for now
     // this.r = 60;
     // this.x = random(w);
     // this.y = h - this.r;
@@ -19,8 +19,8 @@ class Enemy {
   }
 
   move(){
-      // this.y++;
-      this.y += this.speed;
+       this.y++;
+      //this.y += this.speed;
 
   }
 }

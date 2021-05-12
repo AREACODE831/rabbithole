@@ -30,7 +30,8 @@ let inImg;
 
 function preload() {
   playerImg = loadImage('asset/r.png');
-  coinImg = loadImage('asset/hole.png');
+  //coinImg = loadImage('asset/hole.png');
+  coinImg = loadImage('asset/safety.png');
   enemyImg = loadImage('asset/e.png');
   titleImg = loadImage('asset/title.png');
   failImg = loadImage('asset/reco.png');
@@ -282,7 +283,7 @@ function level1() {
 
   for (let i = coins.length - 1; i >= 0; i--) {
     if (dist(player.x, player.y, coins[i].x, coins[i].y) <= (player.r + coins[i].r) / 2) {
-      points++;
+      points--;
       console.log(points);
       coins.splice(i, 1);
     } else if (coins[i].y > h) {
@@ -432,7 +433,7 @@ function final(){
   text('“This is impossible!”', w / 6, h / 5);
   textSize(25);
   text('“Only if you believe it is.”', w / 6, h / 4);
-  text('click anywhere to go back to wake up', w / 6, h / 1.09);
+  text('click anywhere to wake up', w / 6, h / 1.09);
   pop();
 }
 
