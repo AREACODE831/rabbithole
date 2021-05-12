@@ -389,7 +389,7 @@ function youWin() {
   text('Hello, Alice-', w / 2, h / 2);
   textSize(30);
   text('where have you been?', w / 2, h * 3 / 5);
-  textSize(19);
+  textSize(20);
   text('click anywhere to resume', w / 2, h * 3 / 4);
 
 }
