@@ -65,5 +65,9 @@ class Alice {
         default:
         break;
     }
+    if (this.y > h * 9 ){
+     state = 'final';
+    }
+
   }
 }

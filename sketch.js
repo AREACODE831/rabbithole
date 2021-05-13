@@ -25,6 +25,11 @@ let introImg;
 let holeImg;
 let eyeImg;
 let inImg;
+let cursorImg;
+let holeSize = 200;
+let bhImg;
+//let gifLoad;
+//let gifCreate;
 
 
 
@@ -41,6 +46,10 @@ function preload() {
   holeImg = loadImage('asset/2.png');
   eyeImg = loadImage('asset/eye.jpg');
   inImg = loadImage('asset/ra.png');
+  cursorImg = loadImage('asset/r.png');
+  bhImg = loadImage('asset/blackhole.png');
+  //gifLoad = loadImage("asset/'magic.gif");
+  //gifCreate = createImg
 
 }
 
@@ -186,6 +195,8 @@ function title() {
   textFont('VT323');
   text('click anywhere to start!', w / 2, h / 1.5);
   pop();
+  //image(gifLoad, w / 2, h / 1);
+
 }
 
 function titleMouseClicked() {
@@ -364,13 +375,29 @@ function level1MouseClicked() {
 
 
 }
+
+// function level2(){
+//    background(107, 242, 217);
+//    //image(eyeImg, w / 2, h / 1, 700, 700);
+//    image(bhImg, w / 2, h / 1.19, holeSize, holeSize);
+//    textSize(20);
+//    text('still working on this part!',  w / 3, h / 30);
+//    text('move(arrow)+click anywhere to end this',  w / 2, h / 15);
+//    image(cursorImg, mouseX, mouseY, 80, 80);
+//
+//    if (mouseX > (width/2) && mouseX < (width/2)) {
+//       if (mouseY > (height/1.19) && mouseY < (height/1.19)){
+//         state = 'final';
+//       }
+//     }
 function level2(){
    background(107, 242, 217);
    image(eyeImg, w / 2, h / 1, 700, 700);
-   image(holeImg, w / 2, h / 1.19, 500, 700);
+   image(holeImg, w / 2, h / 1.19, 200, 670);
    textSize(20);
    text('still working on this part!',  w / 3, h / 30);
    text('move(arrow)+click anywhere to end this',  w / 2, h / 15);
+
 
    alice.display();
    alice.move();
