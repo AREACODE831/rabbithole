@@ -237,16 +237,16 @@ function level1() {
 
   //frequency of coin droping
 
-  if (random(1) <= 0.01) {
+  if (random(1) <= 0.005) {
     coins.push(new Coin());
   }
-  if (random(1) <= 0.02) {
+  if (random(1) <= 0.005) {
     enemies.push(new Enemy());
   }
-  if (random(1) <= 0.02) {
+  if (random(1) <= 0.005) {
     fails.push(new Fail());
   }
-  if (random(1) <= 0.02) {
+  if (random(1) <= 0.005) {
     safes.push(new Safe());
   }
 
@@ -343,7 +343,7 @@ function level1() {
   text(`pOiNtS: ${points}`, w / 7, h / 15);
 
   //check point values to win or lose the game.
-  if (points >= 10) {
+  if (points >= 3) {
     state = 'you win';
   } else if (points <= -3) {
     state = 'game over';
@@ -394,9 +394,14 @@ function level2(){
    background(107, 242, 217);
    image(eyeImg, w / 2, h / 1, 700, 700);
    image(holeImg, w / 2, h / 1.19, 200, 670);
-   textSize(20);
-   text('still working on this part!',  w / 3, h / 30);
-   text('move(arrow)+click anywhere to end this',  w / 2, h / 15);
+   textSize(25);
+   text('Look! there is White rabbit!',  w / 3, h / 17);
+   text('Should I follow him/her?',  w / 4.3, h / 10);
+   push();
+   textFont('VT323');
+   text('press - Down arrow - ',  w / 4.3, h / 7);
+   pop();
+   text('if you want to',  w / 4.3, h / 5);
 
 
    alice.display();
@@ -406,7 +411,8 @@ function level2(){
 }
 
 function level2MouseClicked(){
-state = 'final';
+  state = 'final';
+//mapchanging
 }
 
 function youWin() {

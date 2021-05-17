@@ -65,9 +65,17 @@ class Alice {
         default:
         break;
     }
-    if (this.y > h * 9 ){
+    if (this.y > h * 8.5 - this.r / 2  ){
      state = 'final';
-    }
+   }
+
+   if (this.x < w / 3){
+     state = 'title';
+   }
+
+   if (this.x < w / 7){
+     state = 'title';
+   }
 
   }
 }
