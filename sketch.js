@@ -28,8 +28,10 @@ let inImg;
 let cursorImg;
 let holeSize = 200;
 let bhImg;
+let wbImg;
 //let gifLoad;
 //let gifCreate;
+let aliceImg;
 
 
 
@@ -37,9 +39,9 @@ function preload() {
   playerImg = loadImage('asset/r.png');
   //coinImg = loadImage('asset/hole.png');
   coinImg = loadImage('asset/safety.png');
-  enemyImg = loadImage('asset/e.png');
+  enemyImg = loadImage('asset/newthing.png');
   titleImg = loadImage('asset/title.png');
-  failImg = loadImage('asset/reco.png');
+  failImg = loadImage('asset/rec.png');
   safeImg = loadImage('asset/cha.png');
   introImg = loadImage('asset/intro.png');
   //bgImg = loadImage('asset/bg.png');
@@ -48,6 +50,8 @@ function preload() {
   inImg = loadImage('asset/ra.png');
   cursorImg = loadImage('asset/r.png');
   bhImg = loadImage('asset/blackhole.png');
+  wbImg = loadImage('asset/rabbit.png');
+  aliceImg = loadImage('asset/alice.png');
   //gifLoad = loadImage("asset/'magic.gif");
   //gifCreate = createImg
 
@@ -343,7 +347,7 @@ function level1() {
   text(`pOiNtS: ${points}`, w / 7, h / 15);
 
   //check point values to win or lose the game.
-  if (points >= 3) {
+  if (points >= 2) {
     state = 'you win';
   } else if (points <= -3) {
     state = 'game over';
@@ -392,8 +396,13 @@ function level1MouseClicked() {
 //     }
 function level2(){
    background(107, 242, 217);
-   image(eyeImg, w / 2, h / 1, 700, 700);
-   image(holeImg, w / 2, h / 1.19, 200, 670);
+   image(eyeImg, w / 2, h / 1.2, 700, 700);
+   // image(holeImg, w / 2, h / 1.19, 200, 670);
+   push();
+   fill(0);
+   rect(w/2, h/1, 100, 900);
+   pop();
+   image(wbImg, w/ 2, h / 1.1, 100, 100);
    textSize(25);
    text('Look! there is White rabbit!',  w / 3, h / 17);
    text('Should I follow him/her?',  w / 4.3, h / 10);

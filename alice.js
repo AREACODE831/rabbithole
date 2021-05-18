@@ -7,7 +7,7 @@ class Alice {
     // this.x = w;
     this.y = h;
     // this.r = 60;
-    this.speed = 5;
+    this.speed = 5.5;
     this.direction = 'still';
     //  this.img = loadImage('asset/r.png');
   }
@@ -18,7 +18,7 @@ class Alice {
     // rect(this.x, this.y/10, this.r, this.r);
     //
     // rect(this.x, this.y, this.r, this.r);
-    image(playerImg, this.x, this.y / 9, this.r, this.r);
+    image(aliceImg, this.x - w / 35, this.y / 6.5, this.r*1.5, this.r*1.5);
     //image(this.img, 0, 0);
     //image(this.img, 0, this.y/2, this.x, this.y);
     // Displays the image at point (0, height/2) at half size
@@ -65,7 +65,7 @@ class Alice {
         default:
         break;
     }
-    if (this.y > h * 8.5 - this.r / 2  ){
+    if (this.y > h * 5 - this.r / 2  ){
      state = 'final';
    }
 
