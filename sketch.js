@@ -38,11 +38,11 @@ let aliceImg;
 function preload() {
   playerImg = loadImage('asset/r.png');
   //coinImg = loadImage('asset/hole.png');
-  coinImg = loadImage('asset/safety.png');
-  enemyImg = loadImage('asset/newthing.png');
+  coinImg = loadImage('asset/st.png');
+  enemyImg = loadImage('asset/n.png');
   titleImg = loadImage('asset/title.png');
   failImg = loadImage('asset/rec.png');
-  safeImg = loadImage('asset/cha.png');
+  safeImg = loadImage('asset/c.png');
   introImg = loadImage('asset/intro.png');
   //bgImg = loadImage('asset/bg.png');
   holeImg = loadImage('asset/2.png');
@@ -99,6 +99,10 @@ function draw() {
     case 'level 2':
       level2();
       cnv.mouseClicked(level2MouseClicked);
+      break;
+    case 'down':
+      down();
+      cnv.mouseClicked(downMouseClicked);
       break;
     case 'you win':
       youWin();
@@ -193,10 +197,10 @@ function title() {
   textAlign(CENTER);
   //text('Rabbit Hole', w / 2, h / 5);
   image(titleImg, w / 2, h / 3, 300, 250);
-  image(inImg, w / 2, h / 1.25, 300, 250);
+  image(inImg, w / 2, h / 1.15, 300, 250);
   push();
   textSize(30);
-  textFont('VT323');
+  textFont('Mansalva');
   text('click anywhere to start!', w / 2, h / 1.5);
   pop();
   //image(gifLoad, w / 2, h / 1);
@@ -211,22 +215,22 @@ function titleMouseClicked() {
 function instruction(){
   background(147, 103, 255);
   textSize(30);
-  textFont('VT323');
+  textFont('Mansalva');
   text('Rabbit Hole', w / 2, h / 5);
   push();
   textSize(22);
   textAlign(LEFT);
-  text('Are you are ready to fall into the rabbit hole of adventure?', w / 24, h / 1.8);
+  text('Are you the one ready to fall into the rabbit hole of adventure?', w / 30, h / 1.8);
 
-  text('You can use arrows to move around to get or lose the points', w / 24, h / 2.35);
-  text('by facing the obstacles coming down.', w / 24, h / 2.15);
+  text('You can use arrows to move around to get or lose the points', w / 30, h / 2.35);
+  text('by facing the obstacles coming down.', w / 30, h / 2.15);
 
-  text('Nobody but curious person can see the White Rabbit.', w / 24, h / 3);
+  text('Nobody but curious person can see the White Rabbit.', w / 30, h / 3);
   // text('by facing the obstacles coming down.', w / 20, h / 1.9);
 
 
   pop();
-  image(introImg, w / 5.3, h / 1.1, 225, 225);
+  image(introImg, w / 5.3, h / 1.2, 225, 225);
 
 }
 
@@ -347,7 +351,7 @@ function level1() {
   text(`pOiNtS: ${points}`, w / 7, h / 15);
 
   //check point values to win or lose the game.
-  if (points >= 2) {
+  if (points >= 1) {
     state = 'you win';
   } else if (points <= -3) {
     state = 'game over';
@@ -403,14 +407,13 @@ function level2(){
    rect(w/2, h/1, 100, 900);
    pop();
    image(wbImg, w/ 2, h / 1.1, 100, 100);
-   textSize(25);
-   text('Look! there is White rabbit!',  w / 3, h / 17);
-   text('Should I follow him/her?',  w / 4.3, h / 10);
-   push();
-   textFont('VT323');
-   text('press - Down arrow - ',  w / 4.3, h / 7);
-   pop();
-   text('if you want to',  w / 4.3, h / 5);
+   textSize(22);
+   textFont('Mansalva');
+   textAlign(LEFT);
+   text('Look! there is White rabbit!',  w / 22, h / 17);
+   text('Should I follow him/her?',  w / 22, h / 10);
+   text('press - Down arrow - ',  w / 22, h / 6);
+   text('if you want to',  w / 22, h / 4.9);
 
 
    alice.display();
@@ -420,14 +423,14 @@ function level2(){
 }
 
 function level2MouseClicked(){
-  state = 'final';
+  state = 'down';
 //mapchanging
 }
 
 function youWin() {
   background(255, 126, 177);
   textSize(50);
-  textFont('Girassol');
+  textFont('Satisfy');
   stroke(255);
   text('Hello, Alice-', w / 2, h / 2);
   textSize(30);
@@ -465,6 +468,29 @@ function gameOver() {
     text('click anywhere to find another rabbit hole', w / 2, h * 3 / 4);
   }
 
+}
+function down(){
+  background(0);
+  textAlign(LEFT);
+  textSize(22);
+  push();
+  textFont('New Tegomin');
+  //textFont(fontItalic);
+  text(' “ She was falling', w / 20, h / 3);
+  textSize(30);
+  text('down', w / 2.9, h / 1.9);
+  textSize(34);
+  text('the rabbit hole."', w / 2.1, h / 1.4);
+  // image(aliceImg, w/3, w/
+  textSize(20);
+  fill(198, 242, 102);
+  textFont('Mansalva');
+  text('-click to resume-', w/20, h/10);
+
+  pop();
+}
+function downMouseClicked(){
+state = 'level 3';
 }
 
 function final(){

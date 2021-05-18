@@ -14,7 +14,7 @@ class Fail {
   display(){
     //fill(0);
     //ellipse(this.x, this.y, this.r, this.r);
-    image(failImg, this.x, this.y, this.r*2.5, this.r*2);
+    image(failImg, this.x, this.y, this.r*2.5, this.r*1.5);
 
   }
 

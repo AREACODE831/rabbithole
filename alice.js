@@ -7,7 +7,7 @@ class Alice {
     // this.x = w;
     this.y = h;
     // this.r = 60;
-    this.speed = 5.5;
+    this.speed = 9.5;
     this.direction = 'still';
     //  this.img = loadImage('asset/r.png');
   }
@@ -65,8 +65,10 @@ class Alice {
         default:
         break;
     }
+
+
     if (this.y > h * 5 - this.r / 2  ){
-     state = 'final';
+     state = 'down';
    }
 
    if (this.x < w / 3){
