@@ -32,6 +32,9 @@ let wbImg;
 //let gifLoad;
 //let gifCreate;
 let aliceImg;
+let buymeImg;
+let gradImg;
+let drinkImg;
 
 
 
@@ -54,6 +57,9 @@ function preload() {
   aliceImg = loadImage('asset/alice.png');
   //gifLoad = loadImage("asset/'magic.gif");
   //gifCreate = createImg
+  buymeImg = loadImage('asset/b.png');
+  gradImg = loadImage('asset/g.png');
+  drinkImg = loadImage('asset/dm.png');
 
 }
 
@@ -103,6 +109,10 @@ function draw() {
     case 'down':
       down();
       cnv.mouseClicked(downMouseClicked);
+      break;
+    case 'level 3':
+      level3();
+      cnv.mouseClicked(level3MouseClicked);
       break;
     case 'you win':
       youWin();
@@ -351,9 +361,9 @@ function level1() {
   text(`pOiNtS: ${points}`, w / 7, h / 15);
 
   //check point values to win or lose the game.
-  if (points >= 1) {
+  if (points >= 3) {
     state = 'you win';
-  } else if (points <= -3) {
+  } else if (points <= -2) {
     state = 'game over';
   }
 
@@ -398,6 +408,7 @@ function level1MouseClicked() {
 //         state = 'final';
 //       }
 //     }
+
 function level2(){
    background(107, 242, 217);
    image(eyeImg, w / 2, h / 1.2, 700, 700);
@@ -491,6 +502,26 @@ function down(){
 }
 function downMouseClicked(){
 state = 'level 3';
+}
+
+
+function level3(){
+   background(107, 242, 217);
+   textSize(30);
+   textFont('Mansalva');
+   text('Place Alice and click!', w / 20, h/10);
+   image(buymeImg, w/6, h/2, 200, 200)
+   image(gradImg, w/1.55, h/4, 210, 210)
+   image(drinkImg, w/2, h/1.5, 210, 210)
+   image(aliceImg, mouseX, mouseY, 100, 100);
+
+
+
+
+}
+
+function level3MouseClicked(){
+state = 'final';
 }
 
 function final(){
