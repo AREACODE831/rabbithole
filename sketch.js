@@ -1,4 +1,7 @@
 'use strict';
+let angleChange;
+let mic;
+let sizeChange;
 
 let state = 'title';
 let cnv;
@@ -40,6 +43,7 @@ let graaliceImg;
 let caliceImg;
 let imgRot = 0;
 let doorImg;
+let fRot=0;
 
 
 
@@ -84,7 +88,8 @@ function setup() {
   rectMode(CENTER);
   angleMode(DEGREES);
 
-  textFont('Futura');
+  mic = new p5.AudioIn()
+  mic.start();
 
   player = new Player();
   alice = new Alice();
@@ -99,6 +104,10 @@ function setup() {
 
 function draw() {
   //background(bgImg);
+// console.log("mouse x is: " + mouseX);
+// console.log("mouse y is: " + mouseY);
+
+console.log("mic level " + mic.getLevel());
 
   switch (state) {
     case 'title':
@@ -149,6 +158,10 @@ function draw() {
     case 'drink':
       drink();
       cnv.mouseClicked(drinkMouseClicked);
+      break;
+    case 'rosie':
+      rosie();
+      cnv.mouseClicked(rosieMouseClicked);
       break;
     case 'you win':
       youWin();
@@ -241,14 +254,14 @@ function keyReleased() {
   }
 }
 
-function keyTyped(){
-  if (key === 'y'){
-    state = 'before';
-  }
-  if (key === 'n'){
-    state = 'go';
-  }
-}
+// function keyTyped(){
+//   if (key === 'y'){
+//     state = 'before';
+//   }
+//   if (key === 'n'){
+//     state = 'go';
+//   }
+// }
 
 function title() {
   background(147, 103, 255);
@@ -282,11 +295,14 @@ function instruction(){
   textSize(22);
   textAlign(LEFT);
   text('This is the first test to see if we invited the right person or not!', w / 38, h / 1.8);
-
+  push();
+  fill(255, 255, 0);
+  text('1st stage', w / 38, h / 2.6);
+  pop();
   text('You can use arrows to move around to get or lose the points', w / 38, h / 2.35);
   text('by facing the obstacles coming down.', w / 38, h / 2.15);
 
-  text('Nobody but curious person can see White Rabbit.', w / 38, h / 3);
+  text('Nobody but curious person can see White Rabbit!', w / 38, h / 3.5);
   // text('by facing the obstacles coming down.', w / 20, h / 1.9);
 
 
@@ -307,8 +323,12 @@ function instruction2(){
   text('After every stage, the story slide pops up.', w / 30, h / 2);
   text('Please place your cursor on White Rabbit character-', w / 30, h / 1.80);
   text('then, click to resume. (plane slide: click anywhere)', w / 30, h / 1.67);
-
-  text('Needed: curiousity + keyboard arrows + mouse cursor', w / 30, h / 3);
+  push();
+  fill(255, 255, 0);
+  text('2-4 stages', w / 30, h / 2.7);
+  pop();
+  text('follow your curiousity!', w / 30, h / 2.45);
+  text('Needed: curiousity + keyboard arrows + mouse cursor + click', w / 30, h / 3.5);
   // text('by facing the obstacles coming down.', w / 20, h / 1.9);
   text('Are you the one ready to fall into the rabbit hole of adventure?', w / 30, h / 1.55);
   push();
@@ -441,9 +461,9 @@ function level1() {
   text(`pOiNtS: ${points}`, w / 7, h / 15);
 
   //check point values to win or lose the game.
-  if (points >= 1) {
+  if (points >= 3) {
     state = 'you win';
-  } else if (points <= -2) {
+  } else if (points <= -1) {
     state = 'game over';
   }
 
@@ -596,7 +616,7 @@ function level3(){
    image(buymeImg, w/6, h/2, 200, 200)
    image(gradImg, w/2, h/1.2, 210, 210)
    image(drinkImg, w/1.2, h/2.11, 200, 200)
-   image(aliceImg, mouseX, mouseY, 100, 100);
+   image(aliceImg, mouseX, mouseY, 150, 150);
 
    if ( 80 > mouseX > 0 && mouseY > 300){
      state = 'apple'
@@ -642,19 +662,25 @@ function beforeMouseClicked(){
 
 function door(){
   background(0);
-  image(doorImg, w/2, h/2, 200, 200);
+  image(doorImg, w/17, h/20, 80, 80);
+
   push();
   //fill(255, 108, 255);
   textSize(24);
-  text('should I open the door?', w/3, h/1.5);
-  text('- type "y" for yes', w/3, h/1.4);
-  text('- type "n" for no', w/3, h/1.3);
+  text('which door should I open?', w/3.5, h/2);
+  text('', w/3, h/1.4);
+  text('', w/3, h/1.3);
   pop();
+  image(aliceImg, mouseX, mouseY, 70, 70);
+
+  if ( 30 > mouseX > 0 && mouseY > 15){
+    state = 'rosie'
+  }
 
 }
 
 function doorMouseClicked(){
-  state = 'before';
+  state = 'rosie';
 }
 
 function apple(){
@@ -714,6 +740,56 @@ function drink(){
 function drinkMouseClicked(){
   state = 'door';
 }
+
+function rosie(){
+  push();
+  angleChange = map(mic.getLevel(), 0, .2, 361, 500);
+  sizeChange = mic.getLevel();
+
+  background(147, 10300 * sizeChange, 255);
+  push();
+  textAlign(LEFT);
+  textSize(20);
+  text('', w / 6, h / 5);
+  textSize(25);
+  text('"wake up Daisy!”', w / 6, h / 4);
+  text('use the mic + your voice!', w / 3.5, h / 1.09);
+  pop();
+  flower();
+  pop();
+
+  // if (angleChange > 60){
+  //   state = 'before';
+  // }
+}
+
+function flower(){
+
+fill(255)
+noStroke();
+push();
+translate(width*0.1, height*0.4);
+rotate(angleChange);
+ellipse(angleChange, 0, 55, 20);
+pop();
+push();
+translate(width*0.3, height*0.7);
+rotate(-angleChange);
+ellipse(0, 0, 55, 20);
+pop();
+push();
+translate(width*0.5, height*0.5);
+rotate(angleChange + 50);
+ellipse(0, 0, 30, 10);
+pop();
+
+}
+
+
+function rosieMouseClicked(){
+  state = 'before';
+}
+
 function final(){
   background(147, 103, 255);
   push();
