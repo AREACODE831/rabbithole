@@ -461,7 +461,7 @@ function level1() {
   text(`pOiNtS: ${points}`, w / 7, h / 15);
 
   //check point values to win or lose the game.
-  if (points >= 3) {
+  if (points >= 1) {
     state = 'you win';
   } else if (points <= -1) {
     state = 'game over';
@@ -643,7 +643,7 @@ function before(){
   fill(255);
   textSize(28);
   textFont('New Tegomin');
-  text('"curiouser and curiouser!', w / 5, h/ 6);
+  text('"curiouser and curiouser!""', w / 5, h/ 6);
   // text('"if you do not know where you are going,', w / 20, h/10);
   // text('any road will get you there."', w / 20, h / 7);
   push();
@@ -746,13 +746,13 @@ function rosie(){
   angleChange = map(mic.getLevel(), 0, .2, 361, 500);
   sizeChange = mic.getLevel();
 
-  background(147, 10300 * sizeChange, 255);
+  background(147, 10300*sizeChange, 255);
   push();
   textAlign(LEFT);
   textSize(20);
   text('', w / 6, h / 5);
   textSize(25);
-  text('"wake up Daisy!”', w / 6, h / 4);
+  text('wake up Daisy!', w / 6, h / 4);
   text('use the mic + your voice!', w / 3.5, h / 1.09);
   pop();
   flower();
@@ -769,19 +769,25 @@ fill(255)
 noStroke();
 push();
 translate(width*0.1, height*0.4);
-rotate(angleChange);
+rotate(angleChange * 1);
 ellipse(angleChange, 0, 55, 20);
 pop();
 push();
 translate(width*0.3, height*0.7);
 rotate(-angleChange);
-ellipse(0, 0, 55, 20);
+ellipse(0, sizeChange*10, 55, 20);
 pop();
 push();
 translate(width*0.5, height*0.5);
 rotate(angleChange + 50);
 ellipse(0, 0, 30, 10);
 pop();
+push();
+translate(width*0.5, height*0.5);
+rotate(angleChange + 50);
+ellipse(0, 0, 3000*sizeChange, 1000*sizeChange);
+pop();
+
 
 }
 
@@ -795,9 +801,9 @@ function final(){
   push();
   textAlign(LEFT);
   textSize(20);
-  text('“This is impossible!”', w / 6, h / 5);
+  text('“ This is impossible!”', w / 6, h / 5);
   textSize(25);
-  text('“Only if you believe it is.”', w / 6, h / 4);
+  text('“ Only if you believe it is.”', w / 6, h / 4);
   text('click anywhere to wake up', w / 6, h / 1.09);
   pop();
 }
