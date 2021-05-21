@@ -335,7 +335,7 @@ function instruction2(){
   text('then, click to resume. (plane slide: click anywhere)', w / 30, h / 1.67);
   push();
   fill(255, 255, 0);
-  text('2-4 stages', w / 30, h / 2.7);
+  text('2-5 stages', w / 30, h / 2.7);
   pop();
   text('follow your curiousity!', w / 30, h / 2.45);
   text('Needed: curiousity + keyboard arrows + mouse cursor + mic', w / 30, h / 3.5);
