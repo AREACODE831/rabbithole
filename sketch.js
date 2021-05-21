@@ -471,7 +471,7 @@ function level1() {
   text(`pOiNtS: ${points}`, w / 7, h / 15);
 
   //check point values to win or lose the game.
-  if (points >= 1) {
+  if (points >= 9) {
     state = 'you win';
   } else if (points <= -1) {
     state = 'game over';
