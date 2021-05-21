@@ -44,7 +44,11 @@ let caliceImg;
 let imgRot = 0;
 let doorImg;
 let fRot=0;
-
+let moonImg;
+let starImg;
+let door1Img;
+let door2Img;
+let daisyImg;
 
 
 function preload() {
@@ -73,7 +77,13 @@ function preload() {
   appleImg = loadImage('asset/applealice.png');
   graaliceImg = loadImage('asset/graalice.png');
   caliceImg = loadImage('asset/coffeealice.png');
-  doorImg = loadImage('asset/door.png');
+  doorImg = loadImage('asset/dr.png');
+  door1Img = loadImage('asset/redd.png');
+  door2Img = loadImage('asset/door.png');
+  moonImg = loadImage('asset/moon.png');
+  starImg = loadImage('asset/star.png');
+  daisyImg = loadImage('asset/daisy.png');
+
 
 }
 
@@ -328,7 +338,7 @@ function instruction2(){
   text('2-4 stages', w / 30, h / 2.7);
   pop();
   text('follow your curiousity!', w / 30, h / 2.45);
-  text('Needed: curiousity + keyboard arrows + mouse cursor + click', w / 30, h / 3.5);
+  text('Needed: curiousity + keyboard arrows + mouse cursor + mic', w / 30, h / 3.5);
   // text('by facing the obstacles coming down.', w / 20, h / 1.9);
   text('Are you the one ready to fall into the rabbit hole of adventure?', w / 30, h / 1.55);
   push();
@@ -535,7 +545,7 @@ function level2(){
 }
 
 function level2MouseClicked(){
-  state = 'down';
+  //state = 'down';
 //mapchanging
 }
 
@@ -641,9 +651,13 @@ function level3MouseClicked(){
 function before(){
   background(0);
   fill(255);
-  textSize(28);
+  textSize(30);
   textFont('New Tegomin');
-  text('"curiouser and curiouser!""', w / 5, h/ 6);
+  text('"curiouser and curiouser!"', w / 5.9, h/ 6);
+  // push();
+  // textSize(22);
+  //  text('click anywhere to wake up', w / 3.8, h / 1.09);
+  // pop();
   // text('"if you do not know where you are going,', w / 20, h/10);
   // text('any road will get you there."', w / 20, h / 7);
   push();
@@ -663,7 +677,8 @@ function beforeMouseClicked(){
 function door(){
   background(0);
   image(doorImg, w/17, h/20, 80, 80);
-
+  image(door1Img, w/ 2, h * 0.3, 70, 70);
+  image(door2Img, w * 0.8 , h/ 1.2, 90, 90);
   push();
   //fill(255, 108, 255);
   textSize(24);
@@ -671,20 +686,23 @@ function door(){
   text('', w/3, h/1.4);
   text('', w/3, h/1.3);
   pop();
-  image(aliceImg, mouseX, mouseY, 70, 70);
+  image(aliceImg, mouseX, mouseY, 60, 60);
 
-  if ( 30 > mouseX > 0 && mouseY > 15){
+  if ( 40 > mouseX > 0 && mouseY > 15){
     state = 'rosie'
   }
 
 }
 
 function doorMouseClicked(){
-  state = 'rosie';
+  // state = 'rosie';
 }
 
 function apple(){
   background(38, 111, 140);
+  textSize(20);
+  fill(255);
+
   push();
   fill(0);
   noStroke();
@@ -696,6 +714,8 @@ function apple(){
   image(appleImg, 0, 0, 200, 200);
   pop();
   imgRot++;
+  textSize(20);
+  text('click for resume!', w/2.5, h/1.02);
 
 }
 
@@ -716,6 +736,10 @@ function graduate(){
   image(graaliceImg, 0, 0, 200, 200);
   pop();
   imgRot++;
+
+  textSize(20);
+  text('click for resume!', w/2.5, h/1.02);
+
 }
 
 function graduateMouseClicked(){
@@ -735,6 +759,10 @@ function drink(){
   image(caliceImg, 0, 0, 200, 200);
   pop();
   imgRot++;
+  textSize(20);
+
+  text('click for resume!', w/2.5, h/1.02);
+
 }
 
 function drinkMouseClicked(){
@@ -747,25 +775,45 @@ function rosie(){
   sizeChange = mic.getLevel();
 
   background(147, 10300*sizeChange, 255);
+  image(moonImg, w * 0.3, h * 0.5, sizeChange*1000+100, sizeChange*1000+100);
+
+  push();
+  translate(width*0.3, height*0.2);
+  rotate(angleChange + 50);
+  image(starImg, 0,0, sizeChange*1000+300, sizeChange*1000+300);
+  pop();
+
+  image(moonImg, w* 0.7, h * 0.2, sizeChange*1000+160, sizeChange*1000+160);
+  image(starImg, w * 0.8, h * 0.6, sizeChange*1000+200, sizeChange*1000+200);
+  push();
+  translate(width*0.3, height*0.8);
+  rotate(angleChange + 70);
+  image(starImg, 0, 0, sizeChange*1000+220, sizeChange*1000+220);
+  pop();
+
   push();
   textAlign(LEFT);
   textSize(20);
   text('', w / 6, h / 5);
   textSize(25);
-  text('wake up Daisy!', w / 6, h / 4);
-  text('use the mic + your voice!', w / 3.5, h / 1.09);
+  text('wake up!', w / 3.1, h / 3);
+  text('use the mic + your voice + clap!', w / 4, h / 1.09);
   pop();
-  flower();
+  //flower();
+  image(daisyImg, w/2, h/2, sizeChange*2000+70, sizeChange*2000+70);
+
   pop();
 
-  // if (angleChange > 60){
-  //   state = 'before';
-  // }
+  image(aliceImg, mouseX, mouseY, 100, 100);
+
+  if (sizeChange > 0.13){
+    state = 'before';
+  }
 }
 
 function flower(){
 
-fill(255)
+fill(255);
 noStroke();
 push();
 translate(width*0.1, height*0.4);
@@ -783,7 +831,7 @@ rotate(angleChange + 50);
 ellipse(0, 0, 30, 10);
 pop();
 push();
-translate(width*0.5, height*0.5);
+translate(width*0.2, height*0.7);
 rotate(angleChange + 50);
 ellipse(0, 0, 3000*sizeChange, 1000*sizeChange);
 pop();
@@ -793,7 +841,7 @@ pop();
 
 
 function rosieMouseClicked(){
-  state = 'before';
+  //state = 'before';
 }
 
 function final(){
@@ -801,9 +849,9 @@ function final(){
   push();
   textAlign(LEFT);
   textSize(20);
-  text('“ This is impossible!”', w / 6, h / 5);
-  textSize(25);
-  text('“ Only if you believe it is.”', w / 6, h / 4);
+  text('drawing: Soovin Choi', w / 6, h / 5);
+  text('quotes from Alice in Wonderland', w / 6, h / 4);
+  text('by Lewis Carroll', w / 6, h / 3.5);
   text('click anywhere to wake up', w / 6, h / 1.09);
   pop();
 }
