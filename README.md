@@ -1,2 +1,2 @@
-# rabbit-hole
+# rabbithole
 Are you ready to fall in?
