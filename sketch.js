@@ -45,7 +45,7 @@ let graaliceImg;
 let caliceImg;
 let imgRot = 0;
 let doorImg;
-let fRot=0;
+let fRot = 0;
 let moonImg;
 let starImg;
 let door1Img;
@@ -75,7 +75,7 @@ function preload() {
   clImg = loadImage('asset/cl.png');
   drrImg = loadImage('asset/drr.png');
   papersImg = loadImage('asset/papers.png');
-    //coinImg = loadImage('asset/hole.png');
+  //coinImg = loadImage('asset/hole.png');
   coinImg = loadImage('asset/st.png');
   enemyImg = loadImage('asset/n.png');
   titleImg = loadImage('asset/title.png');
@@ -136,10 +136,10 @@ function setup() {
 
 function draw() {
   //background(bgImg);
-// console.log("mouse x is: " + mouseX);
-// console.log("mouse y is: " + mouseY);
+  // console.log("mouse x is: " + mouseX);
+  // console.log("mouse y is: " + mouseY);
 
-console.log("mic level " + mic.getLevel());
+  console.log("mic level " + mic.getLevel());
 
   switch (state) {
     case 'title':
@@ -318,7 +318,7 @@ function titleMouseClicked() {
   state = 'instruction'
 }
 
-function instruction(){
+function instruction() {
   background(147, 103, 255);
   textSize(30);
   textFont('Mansalva');
@@ -343,7 +343,7 @@ function instruction(){
 
 }
 
-function instruction2(){
+function instruction2() {
   background(147, 103, 255);
   textSize(30);
   textFont('Mansalva');
@@ -373,10 +373,11 @@ function instruction2(){
 
 }
 
-function instructMouseClicked(){
+function instructMouseClicked() {
   state = 'instruction2';
 }
-function instruct2MouseClicked(){
+
+function instruct2MouseClicked() {
   state = 'level 1';
 }
 
@@ -503,11 +504,11 @@ function level1() {
     gameBgc = color(138, 214, 232);
     // lvlInt = 2;
   }
-  if (points >5) {
-    gameBgc = color( 164, 190, 255);
+  if (points > 5) {
+    gameBgc = color(164, 190, 255);
     // lvlInt = 4;
   }
-  if (points >7) {
+  if (points > 7) {
     gameBgc = color(154, 129, 232);
     // lvlInt = 8;
   }
@@ -541,34 +542,34 @@ function level1MouseClicked() {
 //       }
 //     }
 
-function level2(){
-   background(0);
-   image(eyeImg, w / 2, h / 1.2, 700, 700);
-   // image(holeImg, w / 2, h / 1.19, 200, 670);
-   push();
-   fill(0);
-   noStroke();
-   rect(w/2, h/1, 100, 901);
-   pop();
-   image(wbImg, w/ 2, h / 1.1, 100, 100);
-   textSize(22);
-   textFont('Mansalva');
-   textAlign(LEFT);
-   text('Look! there is White Rabbit!',  w / 22, h / 17);
-   text('Should I follow him/her?',  w / 22, h / 10);
-   text('press "Down arrow"',  w / 22, h / 6);
-   text('to follow',  w / 22, h / 4.9);
+function level2() {
+  background(0);
+  image(eyeImg, w / 2, h / 1.2, 700, 700);
+  // image(holeImg, w / 2, h / 1.19, 200, 670);
+  push();
+  fill(0);
+  noStroke();
+  rect(w / 2, h / 1, 100, 901);
+  pop();
+  image(wbImg, w / 2, h / 1.1, 100, 100);
+  textSize(22);
+  textFont('Mansalva');
+  textAlign(LEFT);
+  text('Look! there is White Rabbit!', w / 22, h / 17);
+  text('Should I follow him/her?', w / 22, h / 10);
+  text('press "Down arrow"', w / 22, h / 6);
+  text('to follow', w / 22, h / 4.9);
 
 
-   alice.display();
-   alice.move();
+  alice.display();
+  alice.move();
 
 
 }
 
-function level2MouseClicked(){
+function level2MouseClicked() {
   // state = 'down';
-//mapchanging
+  //mapchanging
 }
 
 function youWin() {
@@ -581,7 +582,7 @@ function youWin() {
   text('where have you been?', w / 2, h * 3 / 5);
   textSize(20);
   text('click White Rabbit', w / 2, h * 3 / 4);
-  image(wbImg, w/1.1, h/12, 90, 90);
+  image(wbImg, w / 1.1, h / 12, 90, 90);
 
 
 }
@@ -616,7 +617,7 @@ function gameOver() {
 
 }
 
-function down(){
+function down() {
   background(0);
   textAlign(LEFT);
   textSize(22);
@@ -632,51 +633,52 @@ function down(){
   textSize(20);
   fill(198, 242, 102);
   textFont('Mansalva');
-  image(wbImg, w/1.1, h/12, 90, 90);
+  image(wbImg, w / 1.1, h / 12, 90, 90);
 
   pop();
 }
-function downMouseClicked(){
-state = 'level 3';
+
+function downMouseClicked() {
+  state = 'level 3';
 }
 
 
-function level3(){
-   background(107, 242, 217);
-   textSize(30);
-   textFont('Mansalva');
-   text('Move your mouse to place Alice!', w / 20, h/10);
-   image(buymeImg, w/6, h/2, 200, 200)
-   image(gradImg, w/2, h/1.2, 210, 210)
-   image(drinkImg, w/1.2, h/2.11, 200, 200)
-   image(aliceImg, mouseX, mouseY, 150, 150);
+function level3() {
+  background(107, 242, 217);
+  textSize(30);
+  textFont('Mansalva');
+  text('Move your mouse to place Alice!', w / 20, h / 10);
+  image(buymeImg, w / 6, h / 2, 200, 200)
+  image(gradImg, w / 2, h / 1.2, 210, 210)
+  image(drinkImg, w / 1.2, h / 2.11, 200, 200)
+  image(aliceImg, mouseX, mouseY, 150, 150);
 
-   if ( 80 > mouseX > 0 && mouseY > 300){
-     state = 'apple'
-   }
-
-  if ( 300 < mouseX  && mouseY > 500){
-     state = 'graduate'
+  if (80 > mouseX > 0 && mouseY > 300) {
+    state = 'apple'
   }
 
-  if ( 500 < mouseX  && mouseY > 300){
-     state = 'drink'
+  if (300 < mouseX && mouseY > 500) {
+    state = 'graduate'
+  }
+
+  if (500 < mouseX && mouseY > 300) {
+    state = 'drink'
   }
 
 
 
- }
-
-function level3MouseClicked(){
- //state = 'final';
 }
 
-function before(){
+function level3MouseClicked() {
+  //state = 'final';
+}
+
+function before() {
   background(0);
   fill(255);
   textSize(30);
   textFont('New Tegomin');
-  text('"curiouser and curiouser!"', w / 5.9, h/ 6);
+  text('"curiouser and curiouser!"', w / 5.9, h / 6);
   // push();
   // textSize(22);
   //  text('click anywhere to wake up', w / 3.8, h / 1.09);
@@ -684,7 +686,7 @@ function before(){
   // text('"if you do not know where you are going,', w / 20, h/10);
   // text('any road will get you there."', w / 20, h / 7);
   push();
-  translate(width*0.5, height*0.5);
+  translate(width * 0.5, height * 0.5);
   rotate(imgRot);
   image(catImg, 0, 0, 200, 200);
   // image(wbImg, w/6, h/2, 200, 200);
@@ -693,38 +695,38 @@ function before(){
   imgRot++;
 }
 
-function beforeMouseClicked(){
+function beforeMouseClicked() {
   state = 'final';
 }
 
-function door(){
+function door() {
   background(0);
-  image(doorImg, w/17, h/20, 80, 80);
-  image(door1Img, w/ 2, h * 0.3, 70, 70);
-  image(door2Img, w * 0.8 , h/ 1.2, 90, 90);
-  image(door3Img, w * 0.2 , h/ 3 , 100, 130);
-  image(door4Img, w * 0.4 , h * 0.89, 120, 120);
+  image(doorImg, w / 17, h / 20, 80, 80);
+  image(door1Img, w / 2, h * 0.3, 70, 70);
+  image(door2Img, w * 0.8, h / 1.2, 90, 90);
+  image(door3Img, w * 0.2, h / 3, 100, 130);
+  image(door4Img, w * 0.4, h * 0.89, 120, 120);
   // image(snImg, w * 0.8 , h * 0.5, 140, 140);
   push();
   //fill(255, 108, 255);
   textSize(24);
-  text('which door would you like to open?', w/3, h/2);
-  text('', w/3, h/1.4);
-  text('', w/3, h/1.3);
+  text('which door would you like to open?', w / 3, h / 2);
+  text('', w / 3, h / 1.4);
+  text('', w / 3, h / 1.3);
   pop();
   image(aliceImg, mouseX, mouseY, 60, 60);
 
-  if ( 40 > mouseX > 0 && mouseY > 15){
+  if (40 > mouseX > 0 && mouseY > 15) {
     state = 'rosie'
   }
 
 }
 
-function doorMouseClicked(){
+function doorMouseClicked() {
   // state = 'rosie';
 }
 
-function apple(){
+function apple() {
   background(38, 38, 38);
   textSize(20);
   fill(255);
@@ -735,23 +737,23 @@ function apple(){
   push();
   fill(0);
   noStroke();
-  rect(w/2, h/2, 300, 600);
+  rect(w / 2, h / 2, 300, 600);
   pop();
 
-  image(clImg, w/2, mouseChange + 150, 100, 80);
-  image(clImg, w/3, mouseChange - 100, 150, 150);
+  image(clImg, w / 2, mouseChange + 150, 100, 80);
+  image(clImg, w / 3, mouseChange - 100, 150, 150);
   push();
   // translate(width*0.2, height*0.7);
   rotate(-10);
-  image(ipImg, w/2, mouseChange + 50, 120, 120);
+  image(ipImg, w / 2, mouseChange + 50, 120, 120);
   pop();
   // imgRot++;
 
-  image(ipImg, w/2.5, mouseChange - 250, 140, 140);
+  image(ipImg, w / 2.5, mouseChange - 250, 140, 140);
 
 
   push();
-  translate(width*0.5, height*0.7);
+  translate(width * 0.5, height * 0.7);
   rotate(imgRot);
   image(appleImg, 0, 0, 200, 200);
   pop();
@@ -760,31 +762,31 @@ function apple(){
 
 
   textSize(20);
-  text('click to resume!', w/2.5, h/1.02);
+  text('click to resume!', w / 2.5, h / 1.02);
 
 
 }
 
-function appleMouseClicked(){
+function appleMouseClicked() {
   state = 'door';
 }
 
-function graduate(){
+function graduate() {
   background(38, 38, 38);
   push();
   fill(0);
   noStroke();
-  rect(w/2, h/2, 300, 600);
+  rect(w / 2, h / 2, 300, 600);
   pop();
 
   mouseChange = map(mouseX, 0, 600, 200, 500);
 
-  image(paper1Img, w/2, mouseChange + 150, 80, 80);
-  image(paper2Img, w/2.3, mouseChange - 200, 50, 50);
+  image(paper1Img, w / 2, mouseChange + 150, 80, 80);
+  image(paper2Img, w / 2.3, mouseChange - 200, 50, 50);
   push();
   // translate(width*0.2, height*0.7);
   rotate(-10);
-  image(paper1Img, w/2.8, mouseChange - 300, 120, 120);
+  image(paper1Img, w / 2.8, mouseChange - 300, 120, 120);
   pop();
 
   image(paper2Img, w * 0.5, mouseChange + 50, 140, 140);
@@ -795,82 +797,82 @@ function graduate(){
 
 
   push();
-  translate(width*0.5, height*0.7);
+  translate(width * 0.5, height * 0.7);
   rotate(imgRot);
   image(graaliceImg, 0, 0, 200, 200);
   pop();
   imgRot++;
 
   textSize(20);
-  text('click to resume!', w/2.5, h/1.02);
+  text('click to resume!', w / 2.5, h / 1.02);
 
 }
 
-function graduateMouseClicked(){
+function graduateMouseClicked() {
   state = 'door';
 }
 
-function drink(){
+function drink() {
   background(38, 38, 38);
   push();
   fill(0);
   noStroke();
-  rect(w/2, h/2, 300, 600);
+  rect(w / 2, h / 2, 300, 600);
   pop();
 
   mouseChange = map(mouseX, 0, 600, 200, 500);
 
-  image(iceImg, w/2, mouseChange + 100, 100, 100);
+  image(iceImg, w / 2, mouseChange + 100, 100, 100);
   push();
   rotate(-5);
-  image(iceImg, w/1.9, mouseChange - 200, 80, 80);
+  image(iceImg, w / 1.9, mouseChange - 200, 80, 80);
   pop();
-  image(drrImg, w/2.3, mouseChange - 100, 150, 150);
+  image(drrImg, w / 2.3, mouseChange - 100, 150, 150);
   push();
   // translate(width*0.2, height*0.7);
   rotate(-10);
-  image(iceImg, w/2.8, mouseChange - 300, 120, 120);
+  image(iceImg, w / 2.8, mouseChange - 300, 120, 120);
   pop();
 
-  image(drrImg, w/3.2, mouseChange + 50, 140, 140);
+  image(drrImg, w / 3.2, mouseChange + 50, 140, 140);
 
 
   push();
-  translate(width*0.5, height*0.7);
+  translate(width * 0.5, height * 0.7);
   rotate(imgRot);
   image(caliceImg, 0, 0, 200, 200);
   pop();
   imgRot++;
   textSize(20);
 
-  text('click to resume!', w/2.5, h/1.02);
+  text('click to resume!', w / 2.5, h / 1.02);
 
 }
 
-function drinkMouseClicked(){
+function drinkMouseClicked() {
   state = 'door';
 }
 
-function rosie(){
+function rosie() {
   push();
   angleChange = map(mic.getLevel(), 0, .2, 361, 500);
   sizeChange = mic.getLevel();
 
-  background(147, 10300*sizeChange, 255);
-  image(moonImg, w * 0.3, h * 0.5, sizeChange*1000+100, sizeChange*1000+100);
+  background(147, 10300 * sizeChange, 255);
+  image(moonImg, w * 0.3, h * 0.5, sizeChange * 1000 + 100, sizeChange * 1000 + 100);
 
   push();
-  translate(width*0.3, height*0.2);
+  translate(width * 0.3, height * 0.2);
   rotate(angleChange + 50);
-  image(starImg, 0,0, sizeChange*1000+300, sizeChange*1000+300);
+  image(starImg, 0, 0, sizeChange * 1000 + 300, sizeChange * 1000 + 300);
   pop();
 
-  image(moonImg, w* 0.7, h * 0.2, sizeChange*1000+160, sizeChange*1000+160);
-  image(starImg, w * 0.8, h * 0.6, sizeChange*1000+200, sizeChange*1000+200);
+  image(moonImg, w * 0.7, h * 0.2, sizeChange * 1000 + 160, sizeChange * 1000 + 160);
+  image(starImg, w * 0.8, h * 0.6, sizeChange * 1000 + 200, sizeChange * 1000 + 200);
   push();
-  translate(width*0.3, height*0.8);
+  translate(width * 0.3, height * 0.8);
   rotate(angleChange + 70);
-  image(starImg, 0, 0, sizeChange*1000+220, sizeChange*1000+220);
+  image(starImg, 0, 0, sizeChange * 1000 + 220, sizeChange * 1000 + 220);
   pop();
 
   push();
@@ -882,51 +884,51 @@ function rosie(){
   text('use the mic + your voice + clap!', w / 4, h / 1.09);
   pop();
   //flower();
-  image(daisyImg, w/2, h/2, sizeChange*2000+70, sizeChange*2000+70);
+  image(daisyImg, w / 2, h / 2, sizeChange * 2000 + 70, sizeChange * 2000 + 70);
 
   pop();
 
   image(aliceImg, mouseX, mouseY, 100, 100);
 
-  if (sizeChange > 0.13){
+  if (sizeChange > 0.13) {
     state = 'before';
   }
 }
 
-function flower(){
+function flower() {
 
-fill(255);
-noStroke();
-push();
-translate(width*0.1, height*0.4);
-rotate(angleChange * 1);
-ellipse(angleChange, 0, 55, 20);
-pop();
-push();
-translate(width*0.3, height*0.7);
-rotate(-angleChange);
-ellipse(0, sizeChange*10, 55, 20);
-pop();
-push();
-translate(width*0.5, height*0.5);
-rotate(angleChange + 50);
-ellipse(0, 0, 30, 10);
-pop();
-push();
-translate(width*0.2, height*0.7);
-rotate(angleChange + 50);
-ellipse(0, 0, 3000*sizeChange, 1000*sizeChange);
-pop();
+  fill(255);
+  noStroke();
+  push();
+  translate(width * 0.1, height * 0.4);
+  rotate(angleChange * 1);
+  ellipse(angleChange, 0, 55, 20);
+  pop();
+  push();
+  translate(width * 0.3, height * 0.7);
+  rotate(-angleChange);
+  ellipse(0, sizeChange * 10, 55, 20);
+  pop();
+  push();
+  translate(width * 0.5, height * 0.5);
+  rotate(angleChange + 50);
+  ellipse(0, 0, 30, 10);
+  pop();
+  push();
+  translate(width * 0.2, height * 0.7);
+  rotate(angleChange + 50);
+  ellipse(0, 0, 3000 * sizeChange, 1000 * sizeChange);
+  pop();
 
 
 }
 
 
-function rosieMouseClicked(){
+function rosieMouseClicked() {
   //state = 'before';
 }
 
-function final(){
+function final() {
   background(147, 103, 255);
   push();
   textAlign(LEFT);
@@ -937,13 +939,13 @@ function final(){
   text('click anywhere to wake up', w / 6, h / 1.09);
   pop();
 
-  image(safeImg, w/3.2, h/2.2, 130, 130);
-  image(enemyImg, w/2.3, h/1.9, 110, 110);
-  image(aliceImg, w/2, h/1.5, 110, 110);
+  image(safeImg, w / 3.2, h / 2.2, 130, 130);
+  image(enemyImg, w / 2.3, h / 1.9, 110, 110);
+  image(aliceImg, w / 2, h / 1.5, 110, 110);
 
 }
 
-function finalMouseClicked(){
+function finalMouseClicked() {
   state = 'title';
 }
 
@@ -954,7 +956,7 @@ function gameBg() {
   fill(255);
   textSize(25);
   textAlign(CENTER);
-  text('Choose life obstacle that you prefer!', width*0.5, height*0.4);
+  text('Choose life obstacle that you prefer!', width * 0.5, height * 0.4);
   // imageMode(CENTER);
   pop()
 }
@@ -972,7 +974,7 @@ function gameOverMouseClicked() {
 
 }
 
-function go(){
+function go() {
   background(0);
   textSize(25);
   textFont('Mansalva');
@@ -981,6 +983,6 @@ function go(){
   text('click anywhere to find another rabbit hole', w / 2, h * 3 / 4);
 }
 
-function goMouseClicked(){
+function goMouseClicked() {
   state = 'title';
 }
