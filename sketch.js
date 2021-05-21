@@ -115,7 +115,7 @@ function setup() {
   //bgImg = loadImage('asset/hole.jpg');
   gameBgc = color(107, 242, 217);
 
-  frameRate(50);
+  frameRate(60);
   imageMode(CENTER);
   rectMode(CENTER);
   angleMode(DEGREES);
@@ -492,7 +492,10 @@ function level1() {
   }
 
   text(`pOiNtS: ${points}`, w / 7, h / 15);
-
+  push();
+  textSize(20);
+  text('( 9 points needed to go on a adventure)', w / 3.5, h / 9);
+  pop();
   //check point values to win or lose the game.
   if (points >= 9) {
     state = 'you win';
