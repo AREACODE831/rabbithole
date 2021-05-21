@@ -1,7 +1,9 @@
 'use strict';
+
 let angleChange;
 let mic;
 let sizeChange;
+let mouseChange = 10;
 
 let state = 'title';
 let cnv;
@@ -49,11 +51,31 @@ let starImg;
 let door1Img;
 let door2Img;
 let daisyImg;
+let door3Img;
+let door4Img;
+let snImg;
+let iceImg;
+let paper1Img;
+let paper2Img;
+let ipImg;
+let clImg;
+let drrImg;
+let papersImg;
 
 
 function preload() {
+  door3Img = loadImage('asset/d3.png');
+  door4Img = loadImage('asset/d4.png');
+  iceImg = loadImage('asset/ice.png');
+  snImg = loadImage('asset/sn.png');
+  ipImg = loadImage('asset/ip.png');
+  paper1Img = loadImage('asset/paper.png');
+  paper2Img = loadImage('asset/paper2.png');
   playerImg = loadImage('asset/r.png');
-  //coinImg = loadImage('asset/hole.png');
+  clImg = loadImage('asset/cl.png');
+  drrImg = loadImage('asset/drr.png');
+  papersImg = loadImage('asset/papers.png');
+    //coinImg = loadImage('asset/hole.png');
   coinImg = loadImage('asset/st.png');
   enemyImg = loadImage('asset/n.png');
   titleImg = loadImage('asset/title.png');
@@ -471,7 +493,7 @@ function level1() {
   text(`pOiNtS: ${points}`, w / 7, h / 15);
 
   //check point values to win or lose the game.
-  if (points >= 9) {
+  if (points >= 1) {
     state = 'you win';
   } else if (points <= -1) {
     state = 'game over';
@@ -545,7 +567,7 @@ function level2(){
 }
 
 function level2MouseClicked(){
-  //state = 'down';
+  state = 'down';
 //mapchanging
 }
 
@@ -679,6 +701,9 @@ function door(){
   image(doorImg, w/17, h/20, 80, 80);
   image(door1Img, w/ 2, h * 0.3, 70, 70);
   image(door2Img, w * 0.8 , h/ 1.2, 90, 90);
+  image(door3Img, w * 0.2 , h/ 3 , 100, 130);
+  image(door4Img, w * 0.4 , h * 0.89, 120, 120);
+  // image(snImg, w * 0.8 , h * 0.5, 140, 140);
   push();
   //fill(255, 108, 255);
   textSize(24);
@@ -703,19 +728,39 @@ function apple(){
   textSize(20);
   fill(255);
 
+  mouseChange = map(mouseX, 0, 600, 200, 500);
+
+
   push();
   fill(0);
   noStroke();
   rect(w/2, h/2, 300, 600);
   pop();
+
+  image(clImg, w/2, mouseChange + 100, 100, 100);
+  image(clImg, w/3, mouseChange - 100, 150, 150);
+  push();
+  // translate(width*0.2, height*0.7);
+  rotate(10);
+  image(ipImg, w/2, mouseChange - 300, 120, 120);
+  pop();
+  // imgRot++;
+
+  image(ipImg, w/2.5, mouseChange + 50, 140, 140);
+
+
   push();
   translate(width*0.5, height*0.7);
   rotate(imgRot);
   image(appleImg, 0, 0, 200, 200);
   pop();
   imgRot++;
+
+
+
   textSize(20);
   text('click for resume!', w/2.5, h/1.02);
+
 
 }
 
@@ -730,6 +775,24 @@ function graduate(){
   noStroke();
   rect(w/2, h/2, 300, 600);
   pop();
+
+  mouseChange = map(mouseX, 0, 600, 200, 500);
+
+  image(paper1Img, w/2, mouseChange + 150, 80, 80);
+  image(paper2Img, w/2.3, mouseChange - 200, 50, 50);
+  push();
+  // translate(width*0.2, height*0.7);
+  rotate(-10);
+  image(paper1Img, w/2.8, mouseChange - 300, 120, 120);
+  pop();
+
+  image(paper2Img, w * 0.5, mouseChange + 50, 140, 140);
+  push();
+  rotate(-8);
+  image(papersImg, w * 0.5, mouseChange + 10, 100, 100);
+  pop();
+
+
   push();
   translate(width*0.5, height*0.7);
   rotate(imgRot);
@@ -753,6 +816,20 @@ function drink(){
   noStroke();
   rect(w/2, h/2, 300, 600);
   pop();
+
+  mouseChange = map(mouseX, 0, 600, 200, 500);
+
+  image(iceImg, w/2, mouseChange + 100, 100, 100);
+  image(drrImg, w/2.3, mouseChange - 100, 150, 150);
+  push();
+  // translate(width*0.2, height*0.7);
+  rotate(-10);
+  image(iceImg, w/2.8, mouseChange - 300, 120, 120);
+  pop();
+
+  image(drrImg, w/3.2, mouseChange + 50, 140, 140);
+
+
   push();
   translate(width*0.5, height*0.7);
   rotate(imgRot);
